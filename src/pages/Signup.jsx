@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-
+import { Link } from 'react-router-dom'
 const Signup = () => {
   const [signup,setsignup] = useState({name:"",email:"",password:""})
 
@@ -24,6 +24,7 @@ const Signup = () => {
                 <input type="password" value={signup.password} onChange={changeHandler} placeholder='Enter Your password' name='password' required className='ml-[23%] block px-3 py-2 mb-4 rounded-md w-[20vw]' />
                 <input className='ml-[23%] bg-blue-600 px-3 py-2 w-[20vw] rounded-md text-white font-semibold' type="submit" />
             </form>
+         <Link to="/login">  <button className='bg-red-600 px-3 py-2 rounded-md mt-2 text-white font-semibold w-[20vw] ml-[23%]'>Alredy Account</button></Link> 
             
         </div>
     </div>
