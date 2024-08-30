@@ -10,6 +10,12 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "joi": "^17.13.3"
+    "bcrypt": "^5.1.1",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "joi": "^17.13.3",
+    "json-web-token": "^3.2.0",
+    "jsonwebtoken": "^9.0.2",
+    "safe-buffer": "^5.2.1"
   }
 }
