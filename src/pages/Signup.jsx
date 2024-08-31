@@ -10,11 +10,12 @@ const Signup = () => {
     try {
       const response = await fetch("http://localhost:5000/api/v1/create", {
         method: "POST",
+        credentials: 'include',
         headers: {
           'Content-Type': 'application/json'
         },
         body: JSON.stringify(signup),
-        Credential: 'include',
+       
       })
       if (!response.ok) {
         const errorText = await response.text();
@@ -45,7 +46,7 @@ const Signup = () => {
     <div className='w-screen h-screen flex items-center justify-center bg-[url(https://plus.unsplash.com/premium_photo-1699467557048-cedcb4ea82d8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)] object-cover'>
       <div className='flex-col justify-center items-center border-2 border-zinc-600 rounded-md p-7 w-[90%] sm:w-[40%]'>
         <h1 className='text-center text-white text-5xl mb-9 font-semibold'>Sign up</h1>
-        <form onSubmit={submitHandler} className='w-full'>
+        <form onSubmit={submitHandler} className='w-full' method='POST'>
           <input
             type="text"
             value={signup.name}
@@ -76,11 +77,11 @@ const Signup = () => {
           <input
             type="submit"
             value="Sign Up"
-            className='block bg-blue-600 px-3 py-2 w-full sm:w-[80%] mx-auto rounded-md text-white font-semibold'
+            className='block cursor-pointer bg-blue-600 px-3 py-2 w-full sm:w-[80%] mx-auto rounded-md text-white font-semibold'
           />
         </form>
         <Link to="/login">
-          <button className='block bg-red-600 px-3 py-2 rounded-md mt-2 text-white font-semibold w-full sm:w-[80%] mx-auto'>
+          <button className='block cursor-pointer bg-red-600 px-3 py-2 rounded-md mt-2 text-white font-semibold w-full sm:w-[80%] mx-auto'>
             Already have an account?
           </button>
         </Link>

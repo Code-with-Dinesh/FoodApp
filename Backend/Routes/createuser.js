@@ -32,11 +32,10 @@ module.exports = route.post('/create', async function (req, res) {
     );
 
     // set the cookie but its not working
-    res.cookie('token', token)
-    res.status(201).json({ success: true, user: newUser ,data:token});
+    res.cookie('token', token, {
+      httpOnly: true,  
+  });  res.status(201).json({ success: true});
     
-
-
   } catch (err) {
     
     console.error('Error during user creation:', err);
@@ -51,19 +50,28 @@ module.exports = route.post('/loginuser', async (req, res) => {
       const { email, password } = req.body;
       console.log(email,password)
       const userdata = await user.findOne({ email });
+      
       if (!userdata) {
         return res.status(400).json({ success: false, message: 'Email does not exist' });
       }
-      const passcompare = await bcrypt.compare(password,userdata.password)
-      if (!passcompare) {
-        return res.status(400).json({ success: false, message: 'Password is incorrect' });
-      }
+       bcrypt.compare(password,userdata.password,(err,result)=>{
+        if(result){
+        let token = jwt.sign({email:email,userid:userdata._id},'mysecret')
+        res.cookie("token",token)
+        console.log(token)
+        console.log("mai chala hu ji ")
+        }
+        else{
+          console.log("Something went Wrong")
+        }
+       })
+
       const data = {
         user:{
-          id:userdata.id
+          id:userdata.id,
+          email:userdata.email,
         }
       }
-        const token = jwt.sign(data,"myscreat")
         res.status(200).json({ success: true, message: data });
   
     } catch (error) {
