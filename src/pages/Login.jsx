@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 const Login = () => {
-
+  const navigate = useNavigate()
   const [islogin,setislogin] = useState({email:"",password:""})
   const submitHandler = async(e)=>{
     e.preventDefault();
@@ -19,7 +19,7 @@ const Login = () => {
         alert("something went wrong in login")
       }
       else{
-        alert("Login you accont succssfully")
+        navigate("/")
       }
     } catch (error) {
       console.log("Error in login api call",error)
