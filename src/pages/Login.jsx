@@ -30,7 +30,7 @@ const Login = () => {
   }
 
   return (
-    <div className='w-screen h-screen flex items-center justify-center bg-[url(https://plus.unsplash.com/premium_photo-1699467557048-cedcb4ea82d8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)] object-cover'>
+    <div className='w-screen h-screen flex items-center justify-center bg-[url(https://images.unsplash.com/photo-1499028344343-cd173ffc68a9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)] object-cover'>
         <div className='flex-col border-2 border-zinc-600  justify-center items-center  rounded-md p-7 w-[40%]'>
             <h1 className='text-center  text-zinc-300 text-5xl mb-9 font-semibold'>Login </h1>
             <form action="" onSubmit={submitHandler}>

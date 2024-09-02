@@ -43,7 +43,7 @@ const Signup = () => {
   };
 
   return (
-    <div className='w-screen h-screen flex items-center justify-center bg-[url(https://plus.unsplash.com/premium_photo-1699467557048-cedcb4ea82d8?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)] object-cover'>
+    <div className='w-screen h-screen flex items-center justify-center bg-[url(https://images.unsplash.com/photo-1692737349870-e3bfc704ebf9?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)] object-cover'>
       <div className='flex-col justify-center items-center border-2 border-zinc-600 rounded-md p-7 w-[90%] sm:w-[40%]'>
         <h1 className='text-center text-white text-5xl mb-9 font-semibold'>Sign up</h1>
         <form onSubmit={submitHandler} className='w-full' method='POST'>

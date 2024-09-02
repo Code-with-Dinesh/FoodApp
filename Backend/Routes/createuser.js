@@ -31,7 +31,7 @@ module.exports = route.post('/create', async function (req, res) {
       { expiresIn: '1h' } 
     );
 
-    // set the cookie but its not working
+    // set the tooken into the cookie 
     res.cookie('token', token, {
       httpOnly: true,  
   });  res.status(201).json({ success: true});
@@ -79,3 +79,5 @@ module.exports = route.post('/loginuser', async (req, res) => {
       res.status(500).json({ success: false, message: 'Server error' });
     }
   })
+
+  // log out functionality 

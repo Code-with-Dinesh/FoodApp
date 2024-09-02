@@ -4,6 +4,7 @@ const port = 5000
 const cookieParser = require('cookie-parser');
 const connectdb = require("./db")
 const createUser = require("./Routes/createuser")
+const displaydata = require("./Routes/DisplayData")
 const cors = require('cors');
 app.use(cookieParser());
 app.use(express.json())
@@ -30,6 +31,7 @@ app.use((req, res, next) => {
 });
 
 app.use("/api/v1/", createUser)
+app.use("/api/v1/",displaydata)
 app.listen(port,function(){
     console.log(`App listen on port number ${port}`)
 })
