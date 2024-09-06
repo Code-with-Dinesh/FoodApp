@@ -16,11 +16,11 @@ const Home = () => {
     });
 
     let myresponse = await response.json();
-    console.log(myresponse);
+    // console.log(myresponse);
     setfooditem(myresponse[0]);
     setfoodcate(myresponse[1]);
-    console.log(fooditem);
-    console.log(foodcate);
+    // console.log(fooditem);
+    // console.log(foodcate);
   };
   useEffect(() => {
     fetchdata();
