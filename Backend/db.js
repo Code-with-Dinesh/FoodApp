@@ -5,7 +5,9 @@ const mongoUrl1 = "mongodb+srv://dineshgarig:Di%4012345@cluster0.jyn5f.mongodb.n
 
 const connectdb = async () => {
     try {
-      await mongoose.connect(mongoUrl1);
+      await mongoose.connect(mongoUrl1,{
+        useNewUrlParser: true,
+      });
       console.log("Connected to MongoDB");
       const fetch_data = mongoose.connection.db.collection("food_item");
       const data = await fetch_data.find({}).toArray();

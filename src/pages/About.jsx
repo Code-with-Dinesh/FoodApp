@@ -1,11 +1,12 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
+import Footer from './Footer'
 const About = () => {
   return (
     <>
     <Navbar/>
     <div className='w-full  bg-zinc-900  flex flex-col items-center text-white '>
-      <div className=' w-[100%] p-10 h-screen flex flex-wrap gap-x-7  items-center'>
+      <div className=' w-[100%] p-10 h-screen flex flex-wrap gap-x-7   items-center'>
         <div className='w-[45%] h-[40%]  p-5 '>
          <h1 className='text-green-500  text-4xl font-semibold'>Pickup or delivery from restaurants near you</h1>
          <p className='mt-2'>Go Food delivers exceptional dining with fresh, high-quality ingredients. Our diverse menu offers quick bites and hearty meals, crafted to satisfy every taste. Experience fast, flavorful, and satisfying food with every visit, whether you dine in or take out."</p>
@@ -23,6 +24,7 @@ const About = () => {
         </div>
       </div>
     </div>
+    <Footer/>
     </>
   )
 }

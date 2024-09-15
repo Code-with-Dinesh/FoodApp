@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Signup = () => {
   const [signup, setSignup] = useState({ name: "", email: "", password: "" });
-
+  const navigate = useNavigate()
   const submitHandler = async (e) => {
     e.preventDefault();
   
@@ -31,6 +31,10 @@ const Signup = () => {
         console.log(json.message,"An error occurred");
       } else {
         console.log("User created successfully");
+        if (json.token) {
+          localStorage.setItem('authToken', json.token);
+        }
+        navigate("/login")
       }
     } catch (error) {
       console.error("Error during submission:", error);

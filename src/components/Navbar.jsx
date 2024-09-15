@@ -1,7 +1,13 @@
 import React from 'react'
 import { IoFastFoodSharp } from "react-icons/io5";
-import { Link } from 'react-router-dom';
+import { FaCartShopping } from "react-icons/fa6";
+import { Link, useNavigate } from 'react-router-dom';
 const Navbar = () => {
+  const navigate = useNavigate()
+  function logoutHandler(){
+    localStorage.removeItem('authToken')
+    navigate("/login")
+  }
   return (
     <div>
 
@@ -12,8 +18,37 @@ const Navbar = () => {
       <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">GoFood</span>
   </Link>
   <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
-     <Link to="/login"> <button type="button" className="text-black bg-white hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center hover:text-white mr-3">Login</button> </Link>
-    <Link to="/signup"> <button type="button" className="text-black bg-white hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center hover:text-white ">Sign up</button></Link> 
+  {
+  !localStorage.getItem("authToken") ? (
+    <div>
+      <Link to="/login">
+        <button
+          type="button"
+          className="text-black bg-white hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center hover:text-white mr-3"
+        >
+          Login
+        </button>
+      </Link>
+      <Link to="/signup">
+        <button
+          type="button"
+          className="text-black bg-white hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center hover:text-white"
+        >
+          Sign up
+        </button>
+      </Link>
+    </div>
+  ) : 
+   <div className='flex gap-9 items-center justify-center '>
+     <div className=' flex items-center justify-center flex-col '>
+     <FaCartShopping size={20} color='white' />
+      <span className='text-white font-semibold'>My Cart</span>
+     </div>
+     <div onClick={logoutHandler} className='bg-white px-3 py-1 rounded-lg cursor-pointer text-red-600 font-semibold'>Logout</div>
+   </div>
+}
+
+    
 
       <button data-collapse-toggle="navbar-cta" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-cta" aria-expanded="false">
         <span className="sr-only">Open main menu</span>
