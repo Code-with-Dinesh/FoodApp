@@ -60,13 +60,13 @@ const Navbar = () => {
   <div className="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-cta">
     <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 ">
       <li>
-        <Link to="/" className="block py-2 px-3 md:p-0 text-white  rounded hover:text-black " aria-current="page">Home</Link>
+        <Link to="/" className="block py-2 px-3 md:p-0 text-white text-lg  rounded hover:text-black " aria-current="page">Home</Link>
       </li>
       <li>
-        <Link to="/about" className="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-black  dark:text-white   dark:border-gray-700">About</Link>
+        <Link to="/about" className="block py-2 px-3 md:p-0 text-gray-900 rounded text-lg hover:bg-gray-100 md:hover:bg-transparent md:hover:text-black  dark:text-white   dark:border-gray-700">About</Link>
       </li>
       <li>
-        <Link to="/service" className="block py-2 px-3 md:p-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-black  dark:text-white   dark:border-gray-700">Chefs</Link>
+        <Link to="/service" className="block py-2 px-3 md:p-0 text-gray-900 text-lg rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-black  dark:text-white   dark:border-gray-700">Chefs</Link>
       </li>
       
     </ul>

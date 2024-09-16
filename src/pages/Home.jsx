@@ -72,7 +72,7 @@ const Home = () => {
                     .map((filterdata) => {
                       return (
                         <>
-                          <div key={filterdata._id}>
+                          <div className="" key={filterdata._id}>
                             <Card data={filterdata} />
                           </div>
                         </>
