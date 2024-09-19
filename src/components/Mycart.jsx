@@ -1,0 +1,69 @@
+import React from "react";
+import { useContext } from "react";
+import { CartContext } from "../../context/Context";
+import { MdDelete } from "react-icons/md";
+import { BsCartXFill } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
+import { FaArrowLeftLong } from "react-icons/fa6";
+const Mycart = () => {
+    const navigate =  useNavigate()
+    let cart = useContext(CartContext)
+    console.log(cart.item)
+    // calculate the total price
+    let totalPrice = cart.item
+    .map(item => item.qty * item.price)  
+    .reduce((a, b) => a + b, 0);    
+    // remove Item funcanlity
+    const removeHandler = (e)=>{
+       let arr = [e]
+       let update = cart.item.filter((element)=>element.id !==e.id)
+       cart.setitem(update);
+    }     
+  return (
+    <div className="bg-zinc-900 h-screen w-screen relative ">
+        <div  onClick={()=>navigate(-1)} className="text-green-600 cursor-pointer text-xl flex items-center justify-center gap-5 font-semibold ml-7 absolute top-3 "><FaArrowLeftLong /> Go Back</div>
+    <table className="w-full table-auto absolute top-20">
+      <thead>
+        {
+            cart.item.length>0 ?<tr className="text-green-600 border-b border-gray-600">
+            <th className="py-2 text-left pl-4">#</th>
+            <th className="py-2 text-left">Name</th>
+            <th className="py-2 text-left">Quantity</th>
+            <th className="py-2 text-left">Amount</th>
+          </tr>:<div className="flex items-center justify-center mt-[20%] flex-col text-green-600 text-4xl font-semibold">Cart is Empty<BsCartXFill className="mt-4" size={80} color="white" />
+          </div>
+        }
+        
+      </thead>
+      <tbody>
+        {
+            cart.item.map((element,index)=>{
+                return(
+                    <>
+                    <tr key={index} className="text-white border-b border-gray-600">
+          <td className="py-2 pl-4">1</td>
+          <td className="py-2">{element.name}</td>
+          <td className="py-2">{element.qty}</td>
+          <td className="py-2">₹{element.price}</td>
+          <td onClick={()=>removeHandler(element)} className="py-2 cursor-pointer "><MdDelete /></td>
+        </tr>
+        
+                    </>
+                )
+            })
+        }
+        {
+            cart.item.length>0?<div>
+                <p className="text-white ml-5 mt-5 mb-2 font-semibold text-xl">Your Total Price is ₹{totalPrice}</p>
+                <button className="bg-green-600 text-white px-3 py-2 rounded-lg  ml-5">Checkout</button>
+            </div>:""
+        }
+      </tbody>
+    </table>
+  </div>
+  
+  
+  );
+};
+
+export default Mycart;

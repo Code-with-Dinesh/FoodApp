@@ -5,6 +5,7 @@ import Login from './pages/Login'
 import About from './pages/About'
 import Service from './pages/Service'
 import Signup from './pages/Signup'
+import Mycart from './components/Mycart'
 const App = () => {
   return (
     <BrowserRouter> 
@@ -15,8 +16,8 @@ const App = () => {
         <Route path="/about" element={ <About/>}/>
         <Route path="/service" element={ <Service/>}/>
         <Route path="/signup" element={<Signup/>}/>
+        <Route path='/mycart' element={<Mycart/>}/>
       </Routes>
-     
     </div>
     </BrowserRouter>
   )

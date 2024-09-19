@@ -10,7 +10,7 @@ const Service = () => {
       <div className='w-full  p-4  flex items-center justify-evenly flex-wrap'>
       <div className='w-auto rounded-lg overflow-hidden hover:scale-105 transition ease-in-out duration-200  flex flex-col items-center justify-center '>
           <img  className=' h-[50vh] object-cover  overflow-hidden rounded-lg' src="https://i.pinimg.com/564x/66/14/a3/6614a3ff3824042328a2ef5a65b489de.jpg" alt="" />
-          <h1 className='text-zinc-300 mt-3 text-lg'>Sakshi Sharma</h1>
+          <h1 className='text-zinc-300 mt-3 text-lg'>Khushi Garg</h1>
         </div>
        
         <div className='w-auto rounded-lg overflow-hidden hover:scale-105 transition ease-in-out duration-200 flex flex-col items-center justify-center '>

@@ -42,7 +42,7 @@ const Navbar = () => {
    <div className='flex gap-9 items-center justify-center '>
      <div className=' flex items-center justify-center flex-col '>
      <FaCartShopping size={20} color='white' />
-      <span className='text-white font-semibold'>My Cart</span>
+     <Link to="mycart"> <span className='text-white font-semibold'>My Cart</span></Link>
      </div>
      <div onClick={logoutHandler} className='bg-white px-3 py-1 rounded-lg cursor-pointer text-red-600 font-semibold'>Logout</div>
    </div>
