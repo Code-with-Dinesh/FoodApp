@@ -2,7 +2,11 @@ import React from 'react'
 import { IoFastFoodSharp } from "react-icons/io5";
 import { FaCartShopping } from "react-icons/fa6";
 import { Link, useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { CartContext } from '../../context/Context';
 const Navbar = () => {
+  const cart = useContext(CartContext)
+  console.log(cart.item)
   const navigate = useNavigate()
   function logoutHandler(){
     localStorage.removeItem('authToken')
@@ -11,8 +15,8 @@ const Navbar = () => {
   return (
     <div>
 
-<nav className=" border-gray-200 bg-green-600">
-  <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+<nav className=" border-gray-200 bg-green-600 ">
+  <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2">
   <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
   <IoFastFoodSharp size={30} color="white" />
       <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">GoFood</span>
@@ -40,15 +44,14 @@ const Navbar = () => {
     </div>
   ) : 
    <div className='flex gap-9 items-center justify-center '>
-     <div className=' flex items-center justify-center flex-col '>
+    <Link to="/mycart"> <div className=' flex items-center justify-center flex-col  '>
+      <span className='bg-red-600 rounded-full px-[8px] py-[1px] text-white'>{cart.item.length}</span>
      <FaCartShopping size={20} color='white' />
-     <Link to="mycart"> <span className='text-white font-semibold'>My Cart</span></Link>
-     </div>
+      <span className='text-white font-semibold'>My Cart</span>
+     </div></Link>
      <div onClick={logoutHandler} className='bg-white px-3 py-1 rounded-lg cursor-pointer text-red-600 font-semibold'>Logout</div>
    </div>
 }
-
-    
 
       <button data-collapse-toggle="navbar-cta" type="button" className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-cta" aria-expanded="false">
         <span className="sr-only">Open main menu</span>

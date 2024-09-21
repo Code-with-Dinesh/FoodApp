@@ -4,7 +4,9 @@ const Card = ({data}) => {
   let opt = data.options[0]
   let obj = Object.keys(opt);
   let cart = useContext(CartContext)
+ 
   const selectedPrice = data.options[0][cart.size] ? parseInt(data.options[0][cart.size]) : 0;
+
     return (
     
     <div className="">
