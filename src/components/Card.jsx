@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import {CartContext} from '../../context/Context'
+import toast, { Toaster } from 'react-hot-toast';
 const Card = ({data}) => {
   let opt = data.options[0]
   let obj = Object.keys(opt);
@@ -10,6 +11,7 @@ const Card = ({data}) => {
     return (
     
     <div className="">
+        <Toaster />
       <div className="max-w-sm shadow-lg shadow-zinc-900 hover:scale-105 transition ease-in-out duration-200   border-gray-200 rounded-lg flex flex-wrap  bg-green-500 ">
         <img
           className="rounded-lg w-full object-cover h-[200px]"
@@ -51,7 +53,21 @@ const Card = ({data}) => {
         </select>
         <div className="text-md font-semibold text-zinc-700">  ₹  {cart.qty * selectedPrice}
         </div>
-        <button onClick={()=>cart.setitem([...cart.item,{id:data._id,name:data.name,img:data.img,qty:cart.qty,price:selectedPrice}])} className="bg-yellow-500 px-3 py-1 font-semibold ml-2 rounded-md mt-2 mb-2">Add To Cart</button>
+        <button
+    onClick={() => {
+        cart.setitem([...cart.item, {
+            id: data._id,
+            name: data.name,
+            img: data.img,
+            qty: cart.qty,
+            price: selectedPrice
+        }]);
+        toast.success("Added to cart successfully");
+    }}
+    className="bg-yellow-500 px-3 py-1 font-semibold ml-2 rounded-md mt-2 mb-2"
+>
+    Add To Cart
+</button>
         </div>
       </div>
     </div>

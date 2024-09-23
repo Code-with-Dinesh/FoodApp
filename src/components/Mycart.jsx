@@ -5,8 +5,9 @@ import { MdDelete } from "react-icons/md";
 import { BsCartXFill } from "react-icons/bs";
 import { useNavigate } from "react-router-dom";
 import { FaArrowLeftLong } from "react-icons/fa6";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+
+import toast, { Toaster } from 'react-hot-toast';
+
 import {loadStripe} from '@stripe/stripe-js';
 const Mycart = () => {
    const [order,setorder] = useState(true)
@@ -42,15 +43,18 @@ const Mycart = () => {
     if(result.error){
       console.log("Error while Checkout",error)
     }
-    toast.success("Your order is Confirm successfully")
+   
     setorder(false)
   }
   return (
 
     <div className="bg-zinc-900 h-screen w-screen relative ">
-        <ToastContainer />
+        
+       
         <div  onClick={()=>navigate(-1)} className="text-green-600   cursor-pointer text-xl flex items-center justify-center gap-5 font-semibold ml-7 absolute top-3 "><FaArrowLeftLong /> Go Back</div>
+     
     <table className=" table-auto   w-full absolute top-20">
+    <Toaster />
       <thead className="">
         {
             cart.item.length>0 ?<tr className="text-green-600 p border-b border-gray-600">
@@ -73,7 +77,15 @@ const Mycart = () => {
           <td className="py-2 px-24">{element.name}</td>
           <td className="py-2">{element.qty}</td>
           <td className="py-2">₹{element.price}</td>
-          <td onClick={()=>removeHandler(element)} className="py-2 cursor-pointer "><MdDelete /></td>
+          <td
+    onClick={() => {
+        removeHandler(element);
+        toast.failure("Removed item");
+    }}
+    className="py-2 cursor-pointer"
+>
+    <MdDelete />
+</td>
         </tr>
         
                     </>
