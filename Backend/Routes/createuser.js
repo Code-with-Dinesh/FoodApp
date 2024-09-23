@@ -47,7 +47,6 @@ module.exports = route.post('/create', async function (req, res) {
 });
 
 
-
 //login functality
 module.exports = route.post('/loginuser', async (req, res) => {
   try {

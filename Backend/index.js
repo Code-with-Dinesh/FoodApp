@@ -3,8 +3,10 @@ const app = express()
 const port = 5000
 const cookieParser = require('cookie-parser');
 const connectdb = require("./db")
+const stripe = require("stripe")("sk_test_51Q22fKHrevWmd8IWtdkBjINuZLjfPhsnHYfro5snfk0N54f7ScIQqGMQXiIqA6mj2mWpWWQiqrh4PqqXq5iFsMdc00OfrVbg6i")
 const createUser = require("./Routes/createuser")
 const displaydata = require("./Routes/DisplayData")
+const checkout = require("./Routes/checkout")
 const cors = require('cors');
 app.use(cookieParser());
 app.use(express.json())
@@ -32,6 +34,7 @@ app.use((req, res, next) => {
 
 app.use("/api/v1/", createUser)
 app.use("/api/v1/",displaydata)
+app.use("/api/v1/",checkout)
 app.listen(port,function(){
     console.log(`App listen on port number ${port}`)
 })

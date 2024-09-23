@@ -6,6 +6,8 @@ import About from './pages/About'
 import Service from './pages/Service'
 import Signup from './pages/Signup'
 import Mycart from './components/Mycart'
+import Success from './pages/Success'
+import Cancel from './pages/Cancel'
 const App = () => {
   return (
     <BrowserRouter> 
@@ -17,6 +19,8 @@ const App = () => {
         <Route path="/service" element={ <Service/>}/>
         <Route path="/signup" element={<Signup/>}/>
         <Route path='/mycart' element={<Mycart/>}/>
+        <Route path='/success' element={<Success/>}/>
+        <Route path='/cancel' element={<Cancel/>}/>
       </Routes>
     </div>
     </BrowserRouter>

@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import {loadStripe} from '@stripe/stripe-js';
 const Mycart = () => {
    const [order,setorder] = useState(true)
     const navigate =  useNavigate()
@@ -22,7 +23,25 @@ const Mycart = () => {
        cart.setitem(update);
     }    
   // order status
-  const orderstatus = ()=>{
+  const orderstatus = async()=>{
+    const stripe = await loadStripe("pk_test_51Q22fKHrevWmd8IWjqDSWXWxwQE4db9MohgYAVHqqIUkin3v022ldDqcYCaQZVdpZ00mo0mVUDOpVxhfsoXhZIt500JW0EdBUP")
+    const body = {
+      products:cart.item
+    }
+    const response = await fetch("http://localhost:5000/api/v1/checkout",{
+      method:"POST",
+      headers:{
+        "Content-Type": "application/json",
+      },
+      body:JSON.stringify(body)
+    })
+    const session = await response.json()
+    const result = stripe.redirectToCheckout({
+      sessionId:session.id
+    })
+    if(result.error){
+      console.log("Error while Checkout",error)
+    }
     toast.success("Your order is Confirm successfully")
     setorder(false)
   }
