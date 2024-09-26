@@ -74,7 +74,7 @@ const Login = () => {
         />
       </form>
       <Link to="/signup">
-        <button className="bg-red-600 px-6 py-2 text-center flex items-center justify-center rounded-md mt-2 text-white font-semibold w-[80%] sm:w-[70%] lg:w-[60%]">
+        <button className="bg-red-600 px-6 py-2 text-center flex items-center justify-center rounded-md mt-2 text-white font-semibold w-[80%] sm:w-[70%] lg:w-[100%]">
           Signup
         </button>
       </Link>
