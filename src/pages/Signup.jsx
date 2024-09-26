@@ -85,7 +85,7 @@ const Signup = () => {
         />
       </form>
       <Link to="/login">
-        <button className="block cursor-pointer bg-red-600 px-3 py-2 rounded-md mt-2 text-white font-semibold w-full sm:w-[80%] lg:w-[70%] mx-auto">
+        <button className="block cursor-pointer bg-red-600 px-3 py-2 rounded-md mt-2 text-white font-semibold w-full sm:w-[80%] lg:w-[100%] mx-auto">
           Already have an account?
         </button>
       </Link>
